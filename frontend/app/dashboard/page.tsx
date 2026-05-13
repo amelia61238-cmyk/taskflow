@@ -61,7 +61,7 @@ export default function Dashboard() {
 
   const fetchTasks = async (token: string) => {
     try {
-      const res = await fetch('http://localhost:4000/api/tasks', {
+      const res = await fetch('https://taskflow-production-aed1.up.railway.app/api/tasks', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -73,7 +73,7 @@ export default function Dashboard() {
 
   const fetchStats = async (token: string) => {
     try {
-      const res = await fetch('http://localhost:4000/api/tasks/stats', {
+      const res = await fetch('https://taskflow-production-aed1.up.railway.app/api/tasks/stats', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -85,7 +85,7 @@ export default function Dashboard() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:4000/api/tasks', {
+      const res = await fetch('https://taskflow-production-aed1.up.railway.app/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(newTask),
@@ -101,7 +101,7 @@ export default function Dashboard() {
 
   const completeTask = async (id: string) => {
     const token = localStorage.getItem('token');
-    await fetch(`http://localhost:4000/api/tasks/${id}`, {
+    await fetch(`https://taskflow-production-aed1.up.railway.app/api/tasks/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ status: 'COMPLETED' }),
@@ -128,7 +128,7 @@ export default function Dashboard() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:4000/api/tasks/${editingTask.id}`, {
+      const res = await fetch(`https://taskflow-production-aed1.up.railway.app/api/tasks/${editingTask.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(editForm),
@@ -144,7 +144,7 @@ export default function Dashboard() {
 
   const deleteTask = async (id: string) => {
     const token = localStorage.getItem('token');
-    await fetch(`http://localhost:4000/api/tasks/${id}`, {
+    await fetch(`https://taskflow-production-aed1.up.railway.app/api/tasks/${id}`, {
       method: 'DELETE',
       headers: { Authorization: `Bearer ${token}` },
     });
