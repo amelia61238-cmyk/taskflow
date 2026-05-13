@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://taskflow-lemon-six.vercel.app'],
   credentials: true,
 }));
 app.use(express.json());
