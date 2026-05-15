@@ -1,8 +1,9 @@
-const API_URL = 'https://taskflow-production-aed1.up.railway.app';
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+
+const API_URL = 'https://taskflow-production-aed1.up.railway.app';
 
 export default function SignUp() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function SignUp() {
     setError('');
 
     try {
-      const res = await fetch('https://taskflow-production-aed1.up.railway.app/api/auth/signup', {
+      const res = await fetch(`${API_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
