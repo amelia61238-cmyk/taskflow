@@ -4,7 +4,7 @@ import { sendReminderEmail } from '../services/emailService';
 
 export function startDailyReminderScheduler() {
   // Runs every day at 9:00 AM
-  cron.schedule('0 9 * * *', async () => {
+  cron.schedule('0 9,21 * * *', async () => {
     console.log(`[Scheduler] Running daily reminder — ${new Date().toISOString()}`);
     await runReminderJob();
   });
