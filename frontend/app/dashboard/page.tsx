@@ -530,6 +530,11 @@ export default function Dashboard() {
             <span>{item.label}</span>
           </button>
         ))}
+        <button onClick={logout}
+          className="flex-1 flex flex-col items-center py-3 gap-1 text-xs transition text-red-400">
+          <span className="text-lg">🚪</span>
+          <span>Logout</span>
+        </button>
       </div>
 
       {/* ADD MODAL */}
