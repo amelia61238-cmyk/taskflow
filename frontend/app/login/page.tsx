@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+const API_URL = 'https://taskflow-production-aed1.up.railway.app';
+
 export default function Login() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
@@ -15,7 +17,7 @@ export default function Login() {
     setError('');
 
     try {
-      const res = await fetch('https://taskflow-production-aed1.up.railway.app/api/auth/login', {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
