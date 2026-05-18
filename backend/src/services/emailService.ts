@@ -1,9 +1,10 @@
 import nodemailer from 'nodemailer';
 
+// Brevo SMTP
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
+  host: process.env.EMAIL_HOST || 'smtp-relay.brevo.com',
+  port: parseInt(process.env.EMAIL_PORT || '587'),
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -92,7 +93,7 @@ export async function sendReminderEmail(
 
         <!-- CTA -->
         <tr><td style="background:#111118;border:1px solid #ffffff12;border-radius:0 0 16px 16px;padding:24px 32px;text-align:center">
-          <a href="http://localhost:3000/dashboard"
+          <a href="https://taskflow-lemon-six.vercel.app/dashboard"
             style="display:inline-block;background:#7c6af5;color:#fff;text-decoration:none;padding:12px 32px;border-radius:8px;font-size:14px;font-weight:600">
             Open Dashboard →
           </a>
